@@ -20,6 +20,7 @@
     "@tombatossals/react-chords": "^0.2.10",
     "typesense": "^1.7.2",
     "typesense-instantsearch-adapter": "^2.7.1",
+    "veaury": "^2.3.12",
     "vue-instantsearch": "^4.13.2"
   }
 }
