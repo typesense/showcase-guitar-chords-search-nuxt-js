@@ -7,11 +7,19 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "start:typesense": "docker compose up",
+    "index:typesense": "npx tsx ./scripts/indexTypesense.ts"
   },
   "devDependencies": {
     "nuxt": "^3.9.0",
     "vue": "^3.4.6",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@tombatossals/react-chords": "^0.2.10",
+    "typesense": "^1.7.2",
+    "typesense-instantsearch-adapter": "^2.7.1",
+    "vue-instantsearch": "^4.13.2"
   }
 }

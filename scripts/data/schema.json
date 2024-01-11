@@ -1,0 +1,25 @@
+{
+  "name": "guitar-chords",
+  "enable_nested_fields": true,
+  "fields": [
+    {
+      "name": "key",
+      "type": "string",
+      "facet": true
+    },
+    {
+      "name": "suffix",
+      "type": "string"
+    },
+    {
+      "name": "positions",
+      "type": "object[]"
+    },
+    {
+      "name": "positions.capo",
+      "type": "bool[]",
+      "optional": true,
+      "facet": true
+    }
+  ]
+}
