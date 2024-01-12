@@ -35,3 +35,60 @@
     </svg>
   </a>
 </template>
+
+<style>
+.Heading {
+  width: fit-content;
+  text-align: right;
+  position: relative;
+}
+.Heading::after {
+  background: var(--primary-glow);
+  width: 320px;
+  height: 180px;
+  z-index: -1;
+}
+.Heading::after {
+  content: '';
+  left: 70%;
+  position: absolute;
+  filter: blur(45px);
+  top: -50%;
+  animation: move 40s ease-out infinite;
+}
+h1 {
+  font-size: var(--step-3);
+}
+#typesense {
+  color: var(--accent);
+  font-size: var(--step-0);
+}
+
+#githubLink {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0%) scale(1);
+  }
+  45% {
+    transform: translate(-40%, 20%) scale(1.2);
+  }
+  75% {
+    transform: translate(5%, 40%) scale(1.3);
+  }
+  90% {
+    transform: translate(-5%, 5%) scale(0.9);
+  }
+  100% {
+    transform: translate(0%) scale(1);
+  }
+}
+</style>
