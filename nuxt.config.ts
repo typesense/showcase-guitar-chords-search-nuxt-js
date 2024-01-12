@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  routeRules: {
+    '/': { ssr: false }, // for the veaury library to work (import error)
+  },
   runtimeConfig: {
     public: {
       PUBLIC_TYPESENSE_SEARCH_ONLY: process.env.PUBLIC_TYPESENSE_SEARCH_ONLY,
