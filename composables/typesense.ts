@@ -3,7 +3,7 @@ import TypesenseInstantSearchAdapter from 'typesense-instantsearch-adapter';
 export const typesenseInstantsearchAdapter = () => {
   const config = useRuntimeConfig();
 
-  const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
+  return new TypesenseInstantSearchAdapter({
     server: {
       apiKey: config.public.PUBLIC_TYPESENSE_SEARCH_ONLY || 'xyz',
       nodes: [
@@ -19,6 +19,4 @@ export const typesenseInstantsearchAdapter = () => {
       num_typos: 0,
     },
   });
-
-  return typesenseInstantsearchAdapter;
 };
