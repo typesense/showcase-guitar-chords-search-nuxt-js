@@ -38,7 +38,11 @@ export default {
             }"
           />
           <div id="posCount">
-            {{ posCount > 1 ? `${posCount} positions` : '1 position' }}
+            {{
+              item.positions.length > 1
+                ? `${item.positions.length} positions`
+                : '1 position'
+            }}
           </div>
         </template>
       </ais-infinite-hits>
