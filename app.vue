@@ -5,7 +5,7 @@ import { applyReactInVue } from 'veaury';
 export default {
   data() {
     return {
-      searchClient: typesenseInstantsearchAdapter.searchClient,
+      searchClient: typesenseInstantsearchAdapter().searchClient,
     };
   },
   components: {
