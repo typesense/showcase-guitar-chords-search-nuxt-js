@@ -3,10 +3,8 @@
 ## Tech Stack
 
 - <a href="https://github.com/typesense/typesense" target="_blank">Typesense</a>
-- Nuxt
+- Nuxt. There is also a [NextJS version](https://github.com/phiHero/typesense-guitar-chords-nextjs)
 - Typescript
-- Sass
-- Vitest
 - Cypress
 
 All make for a blazingly fast search experience 🔥🔥🔥
