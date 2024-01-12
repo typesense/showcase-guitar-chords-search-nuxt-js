@@ -25,7 +25,7 @@
     font-size: var(--step-0);
   }
   h3 {
-    font-size: calc(var(--step-0) - 0.1max);
+    font-size: calc(var(--step-0) - 0.1vmax);
   }
 }
 /* // Search box */
