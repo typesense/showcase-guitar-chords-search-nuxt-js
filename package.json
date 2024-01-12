@@ -9,10 +9,13 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "start:typesense": "docker compose up",
-    "index:typesense": "npx tsx ./scripts/indexTypesense.ts"
+    "index:typesense": "npx tsx ./scripts/indexTypesense.ts",
+    "cypress:open": "cypress open"
   },
   "devDependencies": {
+    "cypress": "^13.6.2",
     "nuxt": "^3.9.0",
+    "typescript": "^5.3.3",
     "vue": "^3.4.6",
     "vue-router": "^4.2.5"
   },
