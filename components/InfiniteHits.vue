@@ -53,6 +53,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeUp 0.75s ease-out forwards;
   h2 {
     margin-bottom: -1rem;
     font-size: calc(var(--step-0) + 0.2vmax);
@@ -62,6 +63,16 @@ export default {
   }
   #posCount {
     font-size: var(--step--1);
+  }
+}
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 .ais-InfiniteHits-loadMore {
