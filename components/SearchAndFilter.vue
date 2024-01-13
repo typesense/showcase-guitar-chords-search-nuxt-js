@@ -102,4 +102,7 @@
   width: fit-content;
   margin: auto;
 }
+.ais-RefinementList-noResults {
+  font-size: var(--step--1);
+}
 </style>
