@@ -21,7 +21,7 @@ export default {
       :search-client="searchClient"
     >
       <SearchAndFilter />
-      <ais-configure :hitsPerPage="6" />
+      <ais-configure :hitsPerPage="12" />
       <ais-infinite-hits :show-previous="false">
         <template v-slot:item="{ item }">
           <h2>{{ item.key + item.suffix }}</h2>
@@ -127,6 +127,12 @@ button {
 }
 .ais-InfiniteHits-loadMore {
   align-self: center;
+}
+.ais-InfiniteHits-loadMore:disabled {
+  display: none;
+}
+.ais-InfiniteHits-loadMore,
+.ais-RefinementList-showMore {
   padding: 6px 12px;
   border-radius: 5px;
   color: var(--700);
@@ -134,10 +140,8 @@ button {
   border: 1px solid var(--700);
   transition: all 0.25s;
 }
-.ais-InfiniteHits-loadMore:disabled {
-  display: none;
-}
-.ais-InfiniteHits-loadMore:hover {
+.ais-InfiniteHits-loadMore:hover,
+.ais-RefinementList-showMore:hover {
   background-color: var(--700);
   color: var(--100);
 }

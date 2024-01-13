@@ -1,13 +1,18 @@
 <template>
   <aside class="SearchAndFilter">
-    <h2>Filter results</h2>
-    <ais-search-box placeholder="Search..." />
     <h3>Key</h3>
     <ais-refinement-list attribute="key" :sort-by="['name']" />
-    <h3>Suffix</h3>
-    <ais-refinement-list attribute="suffix" :sort-by="['name']" :limit="100" />
     <h3>Capo</h3>
     <ais-refinement-list attribute="positions.capo" />
+    <h3>Suffix</h3>
+    <ais-refinement-list
+      attribute="suffix"
+      show-more
+      :limit="8"
+      :show-more-limit="100"
+      searchable
+      searchable-placeholder="Search suffixes..."
+    />
   </aside>
 </template>
 
@@ -23,9 +28,6 @@
   padding-top: 2rem;
   height: fit-content;
 
-  h2 {
-    font-size: var(--step-0);
-  }
   h3 {
     font-size: calc(var(--step-0) - 0.1vmax);
   }
@@ -89,5 +91,15 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.ais-RefinementList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.ais-RefinementList-showMore {
+  width: fit-content;
+  margin: auto;
 }
 </style>
