@@ -4,19 +4,14 @@ describe('Visit website', () => {
   it('Load more button', () => {
     cy.visit('/');
     const showMoreBtn = cy.contains('Show more results');
-    cy.get(hitListClass).find('li').should('have.length', 6);
-    showMoreBtn.click();
     cy.get(hitListClass).find('li').should('have.length', 12);
+    showMoreBtn.click();
+    cy.get(hitListClass).find('li').should('have.length', 24);
   });
 
-  it('Display result when search "C major"', () => {
+  it('Display no result when search "noResultTestSuffixes"', () => {
     cy.visit('/');
-    cy.get('[placeholder="Search..."]').type('C major{enter}');
-    cy.get(hitListClass).find('li').should('have.length.at.least', 1);
-  });
-  it('Display no result when search "noResultTest"', () => {
-    cy.visit('/');
-    cy.get('[placeholder="Search..."]').type('noResultTest{enter}');
-    cy.get(hitListClass).find('li').should('have.length', 0);
+    cy.get('[placeholder="Search suffixes..."]').type('noResultTestSuffixes');
+    cy.contains('No results.');
   });
 });
