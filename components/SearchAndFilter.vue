@@ -2,8 +2,6 @@
   <aside class="SearchAndFilter">
     <h3>Key</h3>
     <ais-refinement-list attribute="key" :sort-by="['name']" />
-    <h3>Capo</h3>
-    <ais-refinement-list attribute="positions.capo" />
     <h3>Suffix</h3>
     <ais-refinement-list
       attribute="suffix"
@@ -13,6 +11,8 @@
       searchable
       searchable-placeholder="Search suffixes..."
     />
+    <h3>Capo</h3>
+    <ais-refinement-list attribute="positions.capo" />
   </aside>
 </template>
 
