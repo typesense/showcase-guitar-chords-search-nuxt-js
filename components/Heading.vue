@@ -99,8 +99,8 @@ h1 {
 }
 #githubLink {
   position: fixed;
-  top: 2rem;
-  right: 2rem;
+  top: 2vmax;
+  right: 2vmax;
   svg {
     width: 28px;
     height: 28px;
