@@ -1,15 +1,9 @@
 <script>
-import Chord from '@tombatossals/react-chords/lib/Chord';
-import { applyReactInVue } from 'veaury';
-
 export default {
   data() {
     return {
       searchClient: typesenseInstantsearchAdapter().searchClient,
     };
-  },
-  components: {
-    Chord: applyReactInVue(Chord),
   },
 };
 </script>
@@ -22,30 +16,7 @@ export default {
     >
       <SearchAndFilter />
       <ais-configure :hitsPerPage="12" />
-      <ais-infinite-hits :show-previous="false">
-        <template v-slot:item="{ item }">
-          <h2>{{ item.key + item.suffix }}</h2>
-          <Chord
-            :chord="item.positions[0]"
-            :instrument="{
-              strings: 6,
-              fretsOnChord: 4,
-              name: 'Guitar',
-              keys: [],
-              tunings: {
-                standard: ['E', 'A', 'D', 'G', 'B', 'E'],
-              },
-            }"
-          />
-          <div id="posCount">
-            {{
-              item.positions.length > 1
-                ? `${item.positions.length} positions`
-                : '1 position'
-            }}
-          </div>
-        </template>
-      </ais-infinite-hits>
+      <InfiniteHits />
     </ais-instant-search>
   </main>
 </template>
@@ -125,12 +96,14 @@ button {
   margin: auto;
   position: relative;
 }
-.ais-InfiniteHits-loadMore {
-  align-self: center;
+.ais-InstantSearch {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 2rem;
+  min-height: 474px;
 }
-.ais-InfiniteHits-loadMore:disabled {
-  display: none;
-}
+
 .ais-InfiniteHits-loadMore,
 .ais-RefinementList-showMore {
   padding: 6px 12px;
@@ -144,41 +117,5 @@ button {
 .ais-RefinementList-showMore:hover {
   background-color: var(--700);
   color: var(--100);
-}
-.ais-InstantSearch {
-  display: flex;
-  width: 100%;
-  align-items: flex-start;
-  gap: 2rem;
-  min-height: 474px;
-}
-.ais-InfiniteHits {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding-top: 2rem;
-}
-.ais-InfiniteHits-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(max(30%, 140px), 1fr));
-  list-style: none;
-  gap: 2rem 0.5rem;
-}
-
-.ais-InfiniteHits-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  h2 {
-    margin-bottom: -1rem;
-    font-size: calc(var(--step-0) + 0.2vmax);
-  }
-  svg {
-    max-width: 250px;
-  }
-  #posCount {
-    font-size: var(--step--1);
-  }
 }
 </style>
