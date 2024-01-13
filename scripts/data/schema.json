@@ -9,7 +9,8 @@
     },
     {
       "name": "suffix",
-      "type": "string"
+      "type": "string",
+      "facet": true
     },
     {
       "name": "positions",
