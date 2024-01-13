@@ -4,6 +4,8 @@
     <ais-search-box placeholder="Search..." />
     <h3>Key</h3>
     <ais-refinement-list attribute="key" :sort-by="['name']" />
+    <h3>Suffix</h3>
+    <ais-refinement-list attribute="suffix" :sort-by="['name']" :limit="100" />
     <h3>Capo</h3>
     <ais-refinement-list attribute="positions.capo" />
   </aside>
