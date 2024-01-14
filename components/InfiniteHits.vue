@@ -40,7 +40,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding-top: 2rem;
+  padding-top: var(--pad-top);
 }
 .ais-InfiniteHits-list {
   display: grid;

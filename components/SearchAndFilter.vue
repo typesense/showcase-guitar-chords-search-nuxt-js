@@ -25,7 +25,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding-top: 2rem;
+  padding-top: var(--pad-top);
   height: fit-content;
 
   h3 {

@@ -53,6 +53,8 @@ export default {
     #00dc8069 160deg,
     transparent 360deg
   );
+
+  --pad-top: 1rem;
 }
 
 * {
@@ -90,7 +92,7 @@ button {
   padding: calc(3rem + 3.5vmax) 1rem;
   min-height: 100vh;
   min-height: 100dvh;
-  gap: 4rem;
+  gap: 5rem;
   width: 100%;
   max-width: 1200px;
   margin: auto;
