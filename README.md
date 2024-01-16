@@ -1,9 +1,18 @@
-# 🎸 Instant Guitar Chord Positions Search, powered by Typesense
+<h1 align="center">
+ 🎸 Instant Guitar Chord Positions Search, powered by Typesense - NuxtJS
+</h1>
+<div align="center">
+  <div><h3>Other versions</h3></div>
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-nuxt-js">NuxtJS</a> | 
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-next-js">NextJS</a> | 
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-angular">Angular 15</a> |
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-vanilla-js">Vanilla JS</a>
+</div>
 
 ## Tech Stack
 
 - <a href="https://github.com/typesense/typesense" target="_blank">Typesense</a>
-- Nuxt. There is also a [NextJS version](https://github.com/phiHero/typesense-guitar-chords-nextjs)
+- NuxtJS
 - Typescript
 - Cypress
 
@@ -23,9 +32,9 @@ To run this project locally, make sure you have docker and nodejs, install the d
 Installation
 
 ```shell
-git clone https://github.com/phiHero/typesense-guitar-chords-nuxt.git
+git clone https://github.com/typesense/showcase-guitar-chords-search-nuxt-js.git
 
-cd typesense-guitar-chords-nuxt
+cd showcase-guitar-chords-search-nuxt-js
 
 npm i
 ```
@@ -51,5 +60,5 @@ npm run dev
 Open http://localhost:3000 to see the app ✌️
 
 ## Deployment
-- Set required env variables in `nuxt.config.ts`
+- Set env variables required in `nuxt.config.ts` to point the app to the Typesense Cluster
 
