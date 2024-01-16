@@ -9,7 +9,7 @@ export const typesenseInstantsearchAdapter = () => {
       nodes: [
         {
           host: config.public.PUBLIC_TYPESENSE_HOST || 'localhost',
-          port: parseInt(config.public.PUBLIC_TYPESENSE_PORT || '0') || 8108,
+          port: parseInt(config.public.PUBLIC_TYPESENSE_PORT || '8108'),
           protocol: config.public.PUBLIC_TYPESENSE_PROTOCOL || 'http',
         },
       ],
