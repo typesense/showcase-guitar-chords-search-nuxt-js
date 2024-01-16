@@ -22,5 +22,6 @@
       "optional": true,
       "facet": true
     }
-  ]
+  ],
+  "symbols_to_index": ["#"]
 }
