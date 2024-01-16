@@ -105,4 +105,7 @@
 .ais-RefinementList-noResults {
   font-size: var(--step--1);
 }
+.ais-Highlight-highlighted {
+  background-color: var(--accent) !important;
+}
 </style>
