@@ -51,5 +51,5 @@ npm run dev
 Open http://localhost:3000 to see the app ✌️
 
 ## Deployment
-- Set required env variables in `nuxt.config.ts`
+- Set env variables in `nuxt.config.ts` to point the app to the Typesense Cluster
 
