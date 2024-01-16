@@ -1,9 +1,18 @@
-# 🎸 Instant Guitar Chord Positions Search, powered by Typesense
+<h1 align="center">
+ 🎸 Instant Guitar Chord Positions Search, powered by Typesense - NuxtJS
+</h1>
+<div align="center">
+  <div><h3>Other versions</h3></div>
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-nuxt-js">NuxtJS</a> | 
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-next-js">NextJS</a> | 
+  Angular 15 |
+  Vanilla JS
+</div>
 
 ## Tech Stack
 
 - <a href="https://github.com/typesense/typesense" target="_blank">Typesense</a>
-- Nuxt. There is also a [NextJS version](https://github.com/phiHero/typesense-guitar-chords-nextjs)
+- NuxtJS
 - Typescript
 - Cypress
 
