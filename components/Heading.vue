@@ -44,7 +44,7 @@
     </div>
   </div>
   <a
-    href="https://github.com/phiHero/typesense-guitar-chords-nuxt"
+    href="https://github.com/typesense/showcase-guitar-chords-search-nuxt-js"
     target="_blank"
     rel="noopener noreferrer"
     id="githubLink"
