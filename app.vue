@@ -120,4 +120,7 @@ button {
   background-color: var(--700);
   color: var(--100);
 }
+.ais-RefinementList-showMore:disabled {
+  display: none;
+}
 </style>
