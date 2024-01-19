@@ -4,6 +4,13 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { ssr: false }, // for the veaury library to work (import error)
   },
+  app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      title: 'Guitar chords search NuxtJS | Typesense',
+    },
+  },
   runtimeConfig: {
     public: {
       PUBLIC_TYPESENSE_SEARCH_ONLY: process.env.PUBLIC_TYPESENSE_SEARCH_ONLY,
