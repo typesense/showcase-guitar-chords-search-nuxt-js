@@ -1,14 +1,15 @@
 import Typesense from 'typesense';
 import GuitarChordData from './data/guitar.json';
+import 'dotenv/config';
 
 (async () => {
   const typesense = new Typesense.Client({
-    apiKey: 'xyz',
+    apiKey: process.env.TYPESENSE_ADMIN || 'xyz',
     nodes: [
       {
-        host: 'localhost',
-        port: 8108,
-        protocol: 'http',
+        host: process.env.PUBLIC_TYPESENSE_HOST || 'localhost',
+        port: parseInt(process.env.PUBLIC_TYPESENSE_PORT || '8108'),
+        protocol: process.env.PUBLIC_TYPESENSE_PROTOCOL || 'http',
       },
     ],
   });
