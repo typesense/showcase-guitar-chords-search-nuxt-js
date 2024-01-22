@@ -1,7 +1,7 @@
 <template>
   <aside class="SearchAndFilter">
     <h3>Key</h3>
-    <ais-refinement-list attribute="key" :sort-by="['name']" />
+    <ais-refinement-list attribute="key" :sort-by="['name']" :limit="7" :show-more="true" :show-more-limit="50" />
     <h3>Suffix</h3>
     <ais-refinement-list
       attribute="suffix"
