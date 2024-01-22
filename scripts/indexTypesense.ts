@@ -4,7 +4,7 @@ import 'dotenv/config';
 
 (async () => {
   const typesense = new Typesense.Client({
-    apiKey: process.env.TYPESENSE_ADMIN || 'xyz',
+    apiKey: process.env.TYPESENSE_ADMIN_API_KEY || 'xyz',
     nodes: [
       {
         host: process.env.PUBLIC_TYPESENSE_HOST || 'localhost',
