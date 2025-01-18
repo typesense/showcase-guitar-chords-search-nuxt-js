@@ -1,9 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   routeRules: {
-    '/': { ssr: false }, // for the veaury library to work (import error)
+    '/': { ssr: true },
   },
+
   app: {
     head: {
       charset: 'utf-8',
@@ -11,12 +13,13 @@ export default defineNuxtConfig({
       title: 'Guitar chords search NuxtJS | Typesense',
     },
   },
+
   runtimeConfig: {
     public: {
-      PUBLIC_TYPESENSE_SEARCH_ONLY: process.env.PUBLIC_TYPESENSE_SEARCH_ONLY_API_KEY,
-      PUBLIC_TYPESENSE_HOST: process.env.PUBLIC_TYPESENSE_HOST,
-      PUBLIC_TYPESENSE_PORT: process.env.PUBLIC_TYPESENSE_PORT,
-      PUBLIC_TYPESENSE_PROTOCOL: process.env.PUBLIC_TYPESENSE_PROTOCOL,
+      typesenseSearchOnlyApiKey: 'xyz',
+      typesenseServerUrl: 'http://localhost:8108',
     },
   },
+
+  compatibilityDate: '2025-01-10',
 });

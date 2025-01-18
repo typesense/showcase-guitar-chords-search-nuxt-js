@@ -18,7 +18,7 @@
 ## Tech Stack
 
 - <a href="https://github.com/typesense/typesense" target="_blank">Typesense</a>
-- NuxtJS
+- Nuxt 3 with vue-instantsearch server-side rendering (SSR)
 - Typescript
 - Cypress
 

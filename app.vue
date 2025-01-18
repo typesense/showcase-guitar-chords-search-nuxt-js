@@ -1,23 +1,83 @@
-<script>
-export default {
-  data() {
-    return {
-      searchClient: typesenseInstantsearchAdapter().searchClient,
-    };
-  },
-};
+<script async setup lang="ts">
+// Nuxt version 3.13.1: https://github.com/nuxt/nuxt/issues/29674
+import { ref } from 'vue';
+import {
+  AisInstantSearchSsr,
+  AisRefinementList,
+  AisInfiniteHits,
+  AisConfigure,
+  AisPagination,
+  createServerRootMixin,
+  //@ts-ignore
+} from 'vue-instantsearch/vue3/es';
+import { renderToString } from 'vue/server-renderer';
+
+const indexName = 'guitar-chords';
+const searchClient = typesenseInstantsearchAdapter().searchClient;
+// https://algolia.nuxtjs.org/advanced/vue-instantsearch/
+const serverRootMixin = ref(
+  createServerRootMixin({
+    searchClient,
+    indexName,
+    future: {
+      preserveSharedStateOnUnmount: true,
+    },
+  })
+);
+const { instantsearch } = serverRootMixin.value.data();
+provide('$_ais_ssrInstantSearchInstance', instantsearch);
+
+onBeforeMount(() => {
+  // Use data loaded on the server
+  if (algoliaState.value) {
+    instantsearch.hydrate(algoliaState.value);
+  }
+});
+const { data: algoliaState } = await useAsyncData('algolia-state', async () => {
+  return instantsearch.findResultsState({
+    // IMPORTANT: a component with access to `this.instantsearch` to be used by the createServerRootMixin code
+    component: {
+      $options: {
+        components: {
+          AisInstantSearchSsr,
+          AisConfigure,
+          AisRefinementList,
+          AisInfiniteHits,
+          AisPagination,
+        },
+        data() {
+          return { instantsearch };
+        },
+        provide: { $_ais_ssrInstantSearchInstance: instantsearch },
+        render() {
+          return h(AisInstantSearchSsr, null, () => [
+            // Include any vue-instantsearch components that you use including each refinement attribute
+            h(AisRefinementList, { attribute: 'key' }),
+            h(AisRefinementList, { attribute: 'suffix' }),
+            h(AisRefinementList, { attribute: 'positions.capo' }),
+            h(AisInfiniteHits),
+            h(AisConfigure),
+          ]);
+        },
+      },
+    },
+    renderToString,
+  });
+});
 </script>
+
 <template>
   <main class="main">
     <Heading />
-    <ais-instant-search
-      index-name="guitar-chords"
-      :search-client="searchClient"
+    <ais-instant-search-ssr
+      :future="{
+        preserveSharedStateOnUnmount: true,
+      }"
     >
       <SearchAndFilter />
       <ais-configure :hitsPerPage="12" />
       <InfiniteHits />
-    </ais-instant-search>
+    </ais-instant-search-ssr>
   </main>
 </template>
 
@@ -65,9 +125,10 @@ export default {
 
 html,
 body {
-  max-width: 100vw;
+  width: 100vw;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow-x: hidden !important;
 }
 
 body {
