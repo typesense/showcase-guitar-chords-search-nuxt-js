@@ -1,5 +1,5 @@
 <h1 align="center">
- 🎸 Instant Guitar Chord Positions Search, powered by Typesense - NuxtJS
+ 🎸 Instant Guitar Chord Positions Search, powered by Typesense - Nuxt3 SSR
 </h1>
 <div align="center">
   <div><h3>Other versions</h3></div>
@@ -41,7 +41,8 @@ The guitar chord dataset & chord svg generation is from <a href="https://github.
 │   └── vue-instantsearch.ts # vue-instantsearch setup
 ├── utils/
 │   └── typesense.ts # typesense-instantsearch-adapter config
-└── app.vue # guitar chords search
+├── app.vue # guitar chords search
+└── nuxt.config.ts # typesense-instantsearch-adapter build configure
 ```
 
 ## Development
@@ -80,4 +81,4 @@ Open http://localhost:3000 to see the app ✌️
 
 ## Deployment
 
-- Set env variables required in `nuxt.config.ts` to point the app to the Typesense Cluster
+- Set env variables required in [`env.example`](./.env.example) to point the app to the Typesense Cluster
