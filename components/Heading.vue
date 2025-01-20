@@ -41,6 +41,7 @@
           fill="#00DC82"
         />
       </svg>
+      SSR
     </div>
   </div>
   <a
