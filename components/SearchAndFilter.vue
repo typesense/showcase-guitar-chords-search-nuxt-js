@@ -1,7 +1,13 @@
 <template>
   <aside class="SearchAndFilter">
     <h3>Key</h3>
-    <ais-refinement-list attribute="key" :sort-by="['name']" :limit="7" :show-more="true" :show-more-limit="50" />
+    <ais-refinement-list
+      attribute="key"
+      :sort-by="['isRefined', 'name']"
+      :limit="7"
+      :show-more="true"
+      :show-more-limit="50"
+    />
     <h3>Suffix</h3>
     <ais-refinement-list
       attribute="suffix"
@@ -30,6 +36,12 @@
 
   h3 {
     font-size: calc(var(--step-0) - 0.1vmax);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .SearchAndFilter {
+    max-width: 110px !important;
   }
 }
 /* // Search box */

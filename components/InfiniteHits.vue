@@ -1,26 +1,14 @@
-<script setup>
-import ReactChord from '@tombatossals/react-chords/lib/Chord';
-import { applyReactInVue } from 'veaury';
-
-const Chord = applyReactInVue(ReactChord);
+<script setup lang="ts">
+import Chord from './Chord.vue';
 </script>
+
 <template>
   <ais-infinite-hits :show-previous="false">
     <template v-slot:item="{ item }">
       <h2>{{ item.key + item.suffix }}</h2>
+
       <div class="chord-image">
-        <Chord
-          :chord="item.positions[0]"
-          :instrument="{
-            strings: 6,
-            fretsOnChord: 4,
-            name: 'Guitar',
-            keys: [],
-            tunings: {
-              standard: ['E', 'A', 'D', 'G', 'B', 'E'],
-            },
-          }"
-        />
+        <Chord :item="item" />
       </div>
       <div class="posCount">
         {{

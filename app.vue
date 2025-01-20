@@ -11,9 +11,22 @@ import {
   //@ts-ignore
 } from 'vue-instantsearch/vue3/es';
 import { renderToString } from 'vue/server-renderer';
+import { history as historyRouter } from 'instantsearch.js/es/lib/routers';
+import { useRequestURL } from 'nuxt/app';
 
 const indexName = 'guitar-chords';
 const searchClient = typesenseInstantsearchAdapter().searchClient;
+
+const url = useRequestURL();
+const routing = {
+  router: historyRouter({
+    //@ts-ignore
+    getLocation() {
+      return url;
+    },
+    cleanUrlOnDispose: true,
+  }),
+};
 // https://algolia.nuxtjs.org/advanced/vue-instantsearch/
 const serverRootMixin = ref(
   createServerRootMixin({
@@ -22,6 +35,7 @@ const serverRootMixin = ref(
     future: {
       preserveSharedStateOnUnmount: true,
     },
+    routing: routing,
   })
 );
 const { instantsearch } = serverRootMixin.value.data();
@@ -70,9 +84,9 @@ const { data: algoliaState } = await useAsyncData('algolia-state', async () => {
   <main class="main">
     <Heading />
     <ais-instant-search-ssr
-      :future="{
-        preserveSharedStateOnUnmount: true,
-      }"
+      :search-client="searchClient"
+      index-name="guitar-chords"
+      :routing="routing"
     >
       <SearchAndFilter />
       <ais-configure :hitsPerPage="12" />

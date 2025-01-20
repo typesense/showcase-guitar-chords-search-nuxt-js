@@ -1,8 +1,8 @@
-import TypesenseInstantSearchAdapter from 'typesense-instantsearch-adapter';
+import * as TypesenseInstantSearchAdapter from 'typesense-instantsearch-adapter';
 
 export const typesenseInstantsearchAdapter = () => {
   const config = useRuntimeConfig();
-  return new TypesenseInstantSearchAdapter({
+  return new TypesenseInstantSearchAdapter.default({
     server: {
       apiKey: config.public.typesenseSearchOnlyApiKey,
       nodes: [

@@ -22,6 +22,9 @@
   },
   "dependencies": {
     "@tombatossals/react-chords": "^0.2.10",
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "typesense": "^1.8.2",
     "typesense-instantsearch-adapter": "^2.8.0",
     "veaury": "^2.6.1",
