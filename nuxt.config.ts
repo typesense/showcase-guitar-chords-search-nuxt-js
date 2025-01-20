@@ -1,22 +1,36 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+//@ts-ignore
+import veauryVitePlugins from 'veaury/vite/index.js';
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  routeRules: {
-    '/': { ssr: false }, // for the veaury library to work (import error)
-  },
-  app: {
-    head: {
-      charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
-      title: 'Guitar chords search NuxtJS | Typesense',
-    },
-  },
+  debug: true,
+
   runtimeConfig: {
     public: {
-      PUBLIC_TYPESENSE_SEARCH_ONLY: process.env.PUBLIC_TYPESENSE_SEARCH_ONLY_API_KEY,
-      PUBLIC_TYPESENSE_HOST: process.env.PUBLIC_TYPESENSE_HOST,
-      PUBLIC_TYPESENSE_PORT: process.env.PUBLIC_TYPESENSE_PORT,
-      PUBLIC_TYPESENSE_PROTOCOL: process.env.PUBLIC_TYPESENSE_PROTOCOL,
+      typesenseSearchOnlyApiKey: 'xyz',
+      typesenseServerUrl: 'http://localhost:8108',
     },
   },
+
+  build: {
+    transpile: [
+      ({ isDev }) => !isDev && 'typesense-instantsearch-adapter',
+      'veaury',
+    ],
+  },
+
+  vite: {
+    plugins: [
+      veauryVitePlugins({
+        type: 'vue',
+        isNuxt: true,
+      }),
+    ],
+    optimizeDeps: {
+      include: ['typesense-instantsearch-adapter', 'veaury'],
+    },
+  },
+
+  compatibilityDate: '2025-01-20',
 });

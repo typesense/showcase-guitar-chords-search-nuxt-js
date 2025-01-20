@@ -1,30 +1,16 @@
-<script>
-import Chord from '@tombatossals/react-chords/lib/Chord';
-import { applyReactInVue } from 'veaury';
-
-export default {
-  components: {
-    Chord: applyReactInVue(Chord),
-  },
-};
+<script setup lang="ts">
+import Chord from './Chord.vue';
 </script>
+
 <template>
   <ais-infinite-hits :show-previous="false">
     <template v-slot:item="{ item }">
       <h2>{{ item.key + item.suffix }}</h2>
-      <Chord
-        :chord="item.positions[0]"
-        :instrument="{
-          strings: 6,
-          fretsOnChord: 4,
-          name: 'Guitar',
-          keys: [],
-          tunings: {
-            standard: ['E', 'A', 'D', 'G', 'B', 'E'],
-          },
-        }"
-      />
-      <div id="posCount">
+
+      <div class="chord-image">
+        <Chord :item="item" />
+      </div>
+      <div class="posCount">
         {{
           item.positions.length > 1
             ? `${item.positions.length} positions`
@@ -58,11 +44,25 @@ export default {
     margin-bottom: -1rem;
     font-size: calc(var(--step-0) + 0.2vmax);
   }
+  .chord-image {
+    width: 100%;
+    max-width: 250px;
+    aspect-ratio: 250/218.1;
+  }
   svg {
     max-width: 250px;
+    animation: fadeIn 0.5s ease-out forwards;
   }
-  #posCount {
+  .posCount {
     font-size: var(--step--1);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 @keyframes fadeUp {

@@ -14,17 +14,20 @@
   },
   "devDependencies": {
     "cypress": "^13.6.2",
-    "dotenv": "^16.3.2",
-    "nuxt": "^3.9.0",
-    "typescript": "^5.3.3",
-    "vue": "^3.4.6",
-    "vue-router": "^4.2.5"
+    "dotenv": "^16.4.7",
+    "nuxt": "^3.13.1",
+    "typescript": "^5.7.3",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "dependencies": {
     "@tombatossals/react-chords": "^0.2.10",
-    "typesense": "^1.7.2",
-    "typesense-instantsearch-adapter": "^2.7.1",
-    "veaury": "^2.3.12",
-    "vue-instantsearch": "^4.13.2"
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "typesense": "^1.8.2",
+    "typesense-instantsearch-adapter": "^2.8.0",
+    "veaury": "^2.6.1",
+    "vue-instantsearch": "^4.20.1"
   }
 }
